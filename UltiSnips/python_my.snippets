@@ -1,0 +1,22 @@
+priority -50
+
+snippet ipdb "Set IPDB breakpoint" b
+from IPython.core.debugger import Tracer; Tracer()()
+endsnippet
+
+snippet testcase "pyunit testcase" b
+class Test${1:Class}(${2:unittest.TestCase}):
+
+	`!p snip.rv = triple_quotes(snip)`${3:Test case docstring.}`!p snip.rv = triple_quotes(snip)`
+
+	def setUp(self):
+		${4:pass}
+
+	def tearDown(self):
+		${5:pass}
+
+	def test_${6:name}(self):
+		${7:${VISUAL:pass}}
+endsnippet
+
+# vim:ft=snippets:
