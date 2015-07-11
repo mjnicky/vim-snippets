@@ -1,19 +1,35 @@
-priority -50
+priority -49
 
 snippet ipdb "Set IPDB breakpoint" b
 from IPython.core.debugger import Tracer; Tracer()()
 endsnippet
 
-snippet testcase "pyunit testcase" b
-class Test${1:Class}(${2:unittest.TestCase}):
+snippet inp "Import numpy pandas" b
+import numpy as np
+import pandas as pd
+endsnippet
 
-	`!p snip.rv = triple_quotes(snip)`${3:Test case docstring.}`!p snip.rv = triple_quotes(snip)`
+snippet ifmain "ifmain" b
+import argparse
+
+def main():
+    parser = argparse.ArgumentParser(description="")
+	parser.add_argument("${1:arg}", help="${2:arghelp}")
+	args = parser.parse_args()
+	${3:${VISUAL:pass}}
+
+if __name__ == '__main__':
+	main()
+endsnippet
+
+snippet unittest "pyunit testcase" b
+
+import unittest
+
+class Test${1:Class}(unittest.TestCase):
 
 	def setUp(self):
 		${4:pass}
-
-	def tearDown(self):
-		${5:pass}
 
 	def test_${6:name}(self):
 		${7:${VISUAL:pass}}
