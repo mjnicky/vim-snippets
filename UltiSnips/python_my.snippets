@@ -39,4 +39,11 @@ class Test${1:Class}(unittest.TestCase):
 		${7:${VISUAL:pass}}
 endsnippet
 
+snippet box "Box"
+`!p snip.rv = '#' + '#' * (len(t[1]) + 2) + '#'`
+# $1 #
+`!p snip.rv = '#' + '#' * (len(t[1]) + 2) + '#'`
+$0
+endsnippet
+
 # vim:ft=snippets:
